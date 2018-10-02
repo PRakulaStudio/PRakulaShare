@@ -1,7 +1,7 @@
 import {DB, Keyword} from './prakula-core.mjs';
 
 export default function init() {
-	window.addEventListener('readystatechange', () => router(location.pathname));
+	document.addEventListener('DOMContentLoaded', () => router(location.pathname));
 	window.addEventListener('popstate', () => router(location.pathname));
 }
 
