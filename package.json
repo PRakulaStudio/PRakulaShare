@@ -1,0 +1,26 @@
+{
+  "name": "prakula-share",
+  "version": "0.0.1",
+  "description": "PRakula Share",
+  "main": "index.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PonomareVlad/PRakulaShare.git"
+  },
+  "keywords": [
+    "PRakula"
+  ],
+  "author": "PonomareVlad",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/PonomareVlad/PRakulaShare/issues"
+  },
+  "homepage": "https://github.com/PonomareVlad/PRakulaShare#readme",
+  "devDependencies": {
+    "babel-eslint": "^8.2.6",
+    "eslint": "^4.19.1"
+  }
+}

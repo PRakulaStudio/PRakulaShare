@@ -1,0 +1,82 @@
+.modal-wrapper .backdrop-close {
+    color: transparent;
+    font-size: 0;
+    padding: unset;
+}
+
+.modal-wrapper .backdrop-close:before {
+    display: none;
+}
+
+.modal-wrapper .content-section {
+    width: 100%;
+    max-width: 800px;
+    min-height: 600px;
+    margin: 50px auto;
+    border-radius: 25px;
+}
+
+.modal-wrapper .close {
+    display: block;
+    position: absolute;
+    right: var(--root-padding);
+    top: var(--root-padding);
+    background-color: #dddddd;
+    background-image: url("../images/close-icon.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50%;
+    border-radius: 100%;
+    width: var(--root-padding);
+    height: var(--root-padding);
+    color: transparent;
+    font-size: 0;
+}
+
+.modal-wrapper .close:hover {
+    background-color: #b8b8b8;
+}
+
+.modal-wrapper .close:active {
+    background-color: #999999;
+}
+
+.parameters-section {
+    position: relative;
+    display: block;
+    width: auto;
+    /*border-right: 1px solid rgba(128, 128, 128, 0.4);*/
+}
+
+.parameters-section .parameter {
+    margin: 0;
+    max-width: 250px;
+}
+
+.parameters-section .parameter .title {
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: normal;
+    border-bottom: none;
+    cursor: pointer;
+    color: #505050;
+}
+
+.parameters-section .parameter .content {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: var(--root-padding);
+    width: calc(100% - 250px - (var(--root-padding) * 2));
+    height: 550px;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.parameters-section .parameter:first-child .title {
+    color: #000;
+}
+
+.parameters-section .parameter:first-child .content {
+    display: block;
+}

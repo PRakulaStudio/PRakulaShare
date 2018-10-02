@@ -1,0 +1,95 @@
+.caption-left {
+    display: flex;
+
+}
+
+.caption-left * {
+    order: 1;
+}
+
+.caption-left .caption {
+    order: 2;
+}
+
+.elements {
+
+}
+
+.elements .group {
+    position: relative;
+    width: calc(100vw - (var(--root-padding) * 2));
+}
+
+.elements > .title {
+    --font-size: 20px;
+
+    opacity: .7;
+    font-weight: normal;
+}
+
+.element-section {
+    --horisontal-padding: 20px;
+
+    position: relative;
+    box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    padding: var(--horisontal-padding);
+    margin-bottom: 30px;
+    overflow: hidden;
+    padding-bottom: 50px;
+}
+
+.element-section .title {
+    margin: 0;
+    margin-bottom: 20px;
+    align-items: center;
+    font-weight: normal;
+}
+
+.element-section .title .tag {
+    --font-size: 28px;
+    color: #9a9a9a;
+    line-height: 1em;
+    font-size: var(--font-size);
+    font-weight: 300;
+    margin-right: 20px;
+}
+
+.element-section .title .tag:before {
+    content: '<';
+}
+
+.element-section .title .tag:after {
+    content: '>';
+}
+
+.element-section .title .caption {
+    font-size: 20px;
+}
+
+.element-section div {
+    line-height: calc(var(--font-size) * 2);
+    display: flex;
+    justify-content: space-between;
+}
+
+.element-section div > span:last-child {
+    color: #979797;
+}
+
+.element-section .details-button {
+    --font-size: 18px;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    color: #5a5a5a;
+    font-size: var(--font-size);
+    font-weight: 300;
+    line-height: 40px;
+    border-top: solid 1px #eee;
+}
