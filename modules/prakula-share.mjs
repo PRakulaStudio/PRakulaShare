@@ -23,7 +23,7 @@ function loadRoutingConfig() {
 }
 
 async function router(targetPath) {
-	targetPath = 'https://prakula.ru/share/A-development.ru/kupit-ofis/КУПИТЬОФИСВКАЗАНИ/Казань#h1';
+	targetPath = '/share/A-development.ru/kupit-ofis/КУПИТЬОФИСВКАЗАНИ/Казань#h1';
 	const structureConfig = loadRoutingConfig();
 	const pathStructure = targetPath.split('/');
 	/*pathStructure.reduce((structureNode, targetPath) => {
