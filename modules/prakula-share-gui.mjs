@@ -1,16 +1,22 @@
-// import {DB} from './prakula-core.mjs';
+/* eslint-disable no-console */
 import {loadKeywordByPath} from './prakula-share.mjs';
+import {getElementsList, getParametersList} from './prakula-core.mjs';
 
 export async function initKeyword(parentResult, currentPath, item, pathStructure) {
 	return await loadKeywordByPath(pathStructure.join('/'));
 }
 
-export async function renderKeywordPage(keywordData = {}) {
-	document.title = genTitle(keywordData);
-	const rootNode = document.body;
-	rootNode.innerHTML = '';
-	rootNode.appendChild(genPageHeader(keywordData));
-	rootNode.appendChild(genPageElementsSection(keywordData));
+export function renderKeywordPage(keywordData = {}) {
+	try {
+		document.title = genTitle(keywordData);
+		const rootNode = document.body;
+		rootNode.innerHTML = '';
+		rootNode.appendChild(genPageHeader(keywordData));
+		rootNode.appendChild(genPageElementsSection(keywordData));
+	} catch (e) {
+		console.error(e);
+	}
+
 }
 
 function genTitle(keywordData) {
@@ -57,5 +63,42 @@ function genUrlPath(keywordData) {
 
 function genPageElementsSection(keywordData) {
 	const elementsSection = document.createElement('main');
+	elementsSection.className = `elements`;
+	elementsSection.innerHTML = genElementsGroup(keywordData, 'base');
 	return elementsSection;
+}
+
+function genElementsGroup(keywordData, type = 'base') {
+	let output = `<h3 class="title">Базовые параметры: </h3><section class="group">`;
+	getElementsList().forEach(function (element) {
+		if (!keywordData.elements[element.id]) return;
+		const elementData = keywordData.elements[element.id];
+		output += `<div class="element-section">
+            <div class="content-section">
+                <h4 class="title caption-left">
+                    <span class="caption">${element.caption}</span>
+                    <span class="tag${elementData.process < 0.3 ? ' red' : ''}">${element.id}</span>
+                </h4>`;
+		getParametersList().forEach(function (parameter) {
+			if (!elementData[parameter.id]) return;
+			const parameterData = keywordData.elements[element.id][parameter.id];
+
+			let multiplier = parameter.multiplier ? parameter.multiplier : 1;
+			let symbol = parameter.symbol ? parameter.symbol : '';
+			let currentValue = Math.round(parameterData.value * multiplier) + symbol;
+			let targetValue = Math.round(parameterData.dispersion.average * multiplier) + symbol;
+			output += `<div>
+                    <span>${parameter.caption} </span>
+                    <span>`;
+			if (parameterData.process < 0.8) {
+				output += `<span class="red">${currentValue}</span> -> `;
+				output += `<span class="green">${targetValue}</span>`;
+			} else output += `<span class="green">${currentValue}</span>`;
+			output += `</span>
+                </div>`;
+		});
+
+		output += `</div><a class="details-button" href="${location.pathname + '#' + element.id}">Подробнее</a></div>`;
+	});
+	return output + '</section>';
 }

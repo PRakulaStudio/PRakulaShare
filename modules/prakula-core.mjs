@@ -8,20 +8,6 @@ export const DB = {
 	})
 };
 
-/*async function loadKeywordById(id) {
-	return fetch(`/api/keyword.json?id=${id}`)
-		.then(response => response.json())
-		.then(result => {
-			if (!result.status) return result.status;
-			const keyword = new Keyword(result.data);
-			return DB.keywords[keyword.id] = keyword;
-		})
-		.catch((error) => {
-			console.error(error);
-			return false;
-		});
-}*/
-
 async function loadKeywordById(id) {
 	try {
 		const response = await fetch(`/api/keyword.json?id=${id}`);
@@ -44,4 +30,19 @@ export class Keyword {
 		this.elements = elements;
 		return this;
 	}
+}
+
+export function getElementsList() {
+	return [
+		{id: 'h1', caption: 'Заголовок первого уровня'},
+		{id: 'h2', caption: 'Заголовок второго уровня'},
+		{id: 'title', caption: 'Основной заголовок'},
+	];
+}
+
+export function getParametersList() {
+	return [
+		{id: 'length', caption: 'Общая длинна'},
+		{id: 'cs', caption: 'Среднее % содержание', multiplier: 100, symbol: '%'},
+	];
 }
