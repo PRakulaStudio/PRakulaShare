@@ -25,7 +25,7 @@ function loadRoutingConfig() {
 async function router(targetPath) {
 	targetPath = '/share/A-development.ru/kupit-ofis/КУПИТЬОФИСВКАЗАНИ/Казань#h1';
 	const structureConfig = loadRoutingConfig();
-	const pathStructure = targetPath.split('/');
+	const pathStructure = targetPath.split('/').slice(1);
 	/*pathStructure.reduce((structureNode, targetPath) => {
 		if (!structureNode[targetPath]) return false;
 	}, pathStructure);*/
