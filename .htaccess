@@ -1,3 +1,7 @@
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-s
+RewriteRule ^(.+)$ index.html$1 [L]
+
 <IfModule mod_mime.c>
 
   # Data interchange

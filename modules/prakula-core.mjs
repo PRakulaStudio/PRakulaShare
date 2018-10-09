@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+
 export const DB = {
 	keywords: new Proxy({}, {
 		async get(keywords, id) {
@@ -32,12 +33,17 @@ export class Keyword {
 	}
 }
 
-export function getElementsList() {
-	return [
+export function getElementsList(array = false) {
+	if (array) return [
 		{id: 'h1', caption: 'Заголовок первого уровня'},
 		{id: 'h2', caption: 'Заголовок второго уровня'},
 		{id: 'title', caption: 'Основной заголовок'},
 	];
+	else return {
+		h1: {id: 'h1', caption: 'Заголовок первого уровня'},
+		h2: {id: 'h2', caption: 'Заголовок второго уровня'},
+		title: {id: 'title', caption: 'Основной заголовок'},
+	};
 }
 
 export function getParametersList() {

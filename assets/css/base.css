@@ -245,7 +245,7 @@ body {
 }
 
 .modal-wrapper {
-    display: none;
+    display: block;
     position: fixed;
     top: 0;
     right: 0;
@@ -259,10 +259,6 @@ body {
     outline: 0;
     overflow-x: hidden;
     overflow-y: auto;
-}
-
-.modal-wrapper:target {
-    display: block;
 }
 
 .modal-wrapper .backdrop-close {
