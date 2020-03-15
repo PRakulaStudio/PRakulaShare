@@ -71,7 +71,7 @@ export default class Router {
 		}
 	}
 
-	async initRender({_result = null, render: {type, path, method = 'default'}} = {}, targetLocation = location) {
+	async initRender({_result = null, render: {type, path, method = 'default'} = {}} = {}, targetLocation = location) {
 		try {
 			switch (type) {
 				case 'module': {
