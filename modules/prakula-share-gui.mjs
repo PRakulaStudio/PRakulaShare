@@ -5,9 +5,9 @@ import {loadKeywordByPath} from './prakula-share.mjs';
 import {getElementsList, getParametersList} from './prakula-core.mjs';
 
 export async function initKeyword(parentResult, currentPath, item, {path: targetPath}) {
-	const basePathDepth = targetPath.indexOf('share');
-	if (basePathDepth === -1) return console.error('Share base path not found');
-	const sharePath = targetPath.slice(basePathDepth + 1);
+	// const basePathDepth = targetPath.indexOf('share');
+	// if (basePathDepth === -1) return console.error('Share base path not found');
+	const sharePath = targetPath;//.slice(0);
 	if (getElementsList()[sharePath.slice(-1).pop()])
 		this.regHook('postRender', function (keywordData, targetLocation) {
 			renderElementSection(this.targetElement, keywordData._result, targetLocation);
