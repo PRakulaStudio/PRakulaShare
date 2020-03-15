@@ -28,18 +28,16 @@ export default class Router {
 
 	loadRoutingConfig() {
 		return {
-			share: {
-				wrap: true,
-				handler: {
-					type: 'module',
-					path: './prakula-share-gui.mjs',
-					method: 'initKeyword'
-				},
-				render: {
-					type: 'module',
-					path: './prakula-share-gui.mjs',
-					method: 'renderKeywordPage'
-				}
+			wrap: true,
+			handler: {
+				type: 'module',
+				path: './prakula-share-gui.mjs',
+				method: 'initKeyword'
+			},
+			render: {
+				type: 'module',
+				path: './prakula-share-gui.mjs',
+				method: 'renderKeywordPage'
 			}
 		};
 	}
