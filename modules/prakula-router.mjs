@@ -13,7 +13,7 @@ export default class Router {
 		// targetLocation = new URL('http://share/share/A-development.ru/kupit-ofis/КУПИТЬОФИСВКАЗАНИ/Казань/'); // TODO: Remove this
 		const structureConfig = this.loadRoutingConfig();
 		const pathStructure = targetLocation.path = targetLocation.pathname.replace(/\/$/, '').split('/').slice(1);
-		let parentNode = structureConfig;
+		let parentNode = structureConfig.share;
 
 		for (const path of pathStructure) {
 			parentNode = await this.pathStructureWorker(parentNode, path, targetLocation);
@@ -28,16 +28,31 @@ export default class Router {
 
 	loadRoutingConfig() {
 		return {
-			wrap: true,
-			handler: {
-				type: 'module',
-				path: './prakula-share-gui.mjs',
-				method: 'initKeyword'
-			},
-			render: {
-				type: 'module',
-				path: './prakula-share-gui.mjs',
-				method: 'renderKeywordPage'
+			share: {
+				wrap: true,
+				handler: {
+					type: 'module',
+					path: './prakula-share-gui.mjs',
+					method: 'initKeyword'
+				},
+				render: {
+					type: 'module',
+					path: './prakula-share-gui.mjs',
+					method: 'renderKeywordPage'
+				},
+				'*': {
+					wrap: true,
+					handler: {
+						type: 'module',
+						path: './prakula-share-gui.mjs',
+						method: 'initKeyword'
+					},
+					render: {
+						type: 'module',
+						path: './prakula-share-gui.mjs',
+						method: 'renderKeywordPage'
+					}
+				}
 			}
 		};
 	}
