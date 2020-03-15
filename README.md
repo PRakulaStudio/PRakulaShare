@@ -1,2 +1,0 @@
-# PRakulaShare
-Share for PRakula
