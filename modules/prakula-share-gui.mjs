@@ -156,7 +156,7 @@ function genElementParameters(elementData) {
                     <div>Рекомендуемое: <span class="green">${targetValue}</span></div>
                     <div><span>Мин: ${minValue}</span><span>Макс: ${maxValue}</span></div>
                     <div>Содержит: <span>${elementData.value}</span></div>
-                    <div><img src="assets/images/demo/chart.png" height="400"></div>
+                    <div></div>
                 </div>
             </div>`;
 	});

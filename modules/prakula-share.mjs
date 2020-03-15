@@ -21,7 +21,7 @@ export class ShareKeyword extends Keyword {
 
 export async function loadKeywordByPath(path) {
 	try {
-		const response = await fetch(`/prakula/api.php?method=getShareByPath&path=${path}`);
+		const response = await fetch(`https://prakula.ru/prakula/api.php?method=getShareByPath&path=${path}`);
 		const result = await response.json();
 		if (!result.status) return result.status;
 		const keyword = new ShareKeyword(result.data);
