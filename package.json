@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/PonomareVlad/PRakulaShare#readme",
   "devDependencies": {
-    "babel-eslint": "^8.2.6",
+    "babel-eslint": "^10.1.0",
     "eslint": "^8.31.0"
   },
   "dependencies": {
